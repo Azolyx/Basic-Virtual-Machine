@@ -25,9 +25,8 @@ const int program[] = {
 
 typedef enum {
     A, B, C, D, E, F, G, H,
-    IP,
-    INT, STR,
-    SP, STACK,
+    IP, STACK,
+    INT, SP,
     NUM_OF_REGISTERS
 } Registers;
 
@@ -134,27 +133,17 @@ void eval(int instr) {
             int b = program[++registers[IP]];
             switch (a) {
                 case INT: {
-                    printf("ERROR: INT is not a valid registry\n");
-                    running = false;
-                    break;
-                }
-                case STR: {
-                    printf("ERROR: STR is not a valid registry\n");
-                    running = false;
-                    break;
-                }
-                case NUM_OF_REGISTERS: {
-                    printf("ERROR: NUM_OF_REGISTERS is not a valid registry\n");
+                    printf("ERROR: INT is not editible\n");
                     running = false;
                     break;
                 }
                 case SP: {
-                    printf("ERROR: Cannot edit SP\n");
+                    printf("ERROR: SP is not editible\n");
                     running = false;
                     break;
                 }
-                case STACK: {
-                    printf("ERROR: Cannot edit STACK\n");
+                case NUM_OF_REGISTERS: {
+                    printf("ERROR: NUM_OF_REGISTERS is not editible\n");
                     running = false;
                     break;
                 }
